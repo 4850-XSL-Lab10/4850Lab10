@@ -1,5 +1,5 @@
 ##########
-XML Lab 10
+XSL Lab 10
 ##########
 
 This is the new and improved lab 7 also known as lab 10
