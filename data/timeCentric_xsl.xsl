@@ -4,169 +4,98 @@
     <xsl:template match="/">
         <html>
             <head>
-                <title>Class Schedule: Start-Time Centric</title>
+                <title>Class Schedule: Time Centric</title>
             </head>
             <body>
-                <h1>Class Schedule: Start-Time Centric</h1>
+                <h1>Class Schedule: Time Centric</h1>
                 <xsl:call-template name="timetable"/>
             </body>
         </html>
     </xsl:template>
-    
+    <!-- timetable template -->
     <xsl:template name="timetable">
         <table border="1">
             <tr bgcolor="#9acd32">
-                <th>Days</th>
-                <th width="100px">08:30:00</th>
-                <th width="100px">09:30:00</th>
-                <th width="100px">10:30:00</th>
-                <th width="100px">11:30:00</th>
-                <th width="100px">12:30:00</th>
-                <th width="100px">01:30:00</th>
-                <th width="100px">02:30:00</th>
-                <th width="100px">03:30:00</th>
-                <th width="100px">04:30:00</th>
+                <!-- Weekday headings -->
+                <th>Time</th>
+                <th width="100px">Monday</th>
+                <th width="100px">Tuesday</th>
+                <th width="100px">Wednesday</th>
+                <th width="100px">Thursday</th>
+                <th width="100px">Friday</th>
             </tr>
-            <xsl:for-each select="/schedule/days/day">
-                <xsl:call-template name="days"/>
+            <xsl:for-each select="/schedule/timeslots/timeslot">
+                <xsl:call-template name="time"/>
             </xsl:for-each>
         </table>
 
     </xsl:template>
-    
-    <xsl:template name="days">
+    <!-- time template -->
+    <xsl:template name="time">
         <tr>
             <th bgcolor="#9acd32">
-                <xsl:value-of select="./@weekDay" />
+                <!-- Grabs times from attribute time -->
+                <xsl:value-of select="./@time" />
             </th>
             <td>
+                <!-- For each loop grabbing information of the specific day -->
                 <xsl:for-each select="./booking">
-                    <xsl:if test="@startTime='08:30:00'">
-                        <td>
+                    <xsl:if test="@weekDay='Monday'">
                             ACIT<xsl:value-of select="./@courseID"/>
                             <br/>
                             <xsl:value-of select="./@instructor"/>
                             <br/>
                             <xsl:value-of select="./@classActivity"/>
-                            <br/>
-                            <xsl:value-of select="./@classLocation"/>
-                            <br/>
-                        </td>
+
                     </xsl:if>
                 </xsl:for-each>
             </td>
             <td>
                 <xsl:for-each select="./booking">
-                    <xsl:if test="@startTime='09:30:00'">
+                    <xsl:if test="@weekDay='Tuesday'">
                         ACIT<xsl:value-of select="./@courseID"/>
                         <br/>
                         <xsl:value-of select="./@instructor"/>
                         <br/>
                         <xsl:value-of select="./@classActivity"/>
-                        <br/>
-                        <xsl:value-of select="./@classLocation"/>
-                        <br/>
                     </xsl:if>
                 </xsl:for-each>
             </td>
             <td>
                 <xsl:for-each select="./booking">
-                    <xsl:if test="@startTime='10:30:00'">
+                    <xsl:if test="@weekDay='Wednesday'">
                         ACIT<xsl:value-of select="./@courseID"/>
                         <br/>
                         <xsl:value-of select="./@instructor"/>
                         <br/>
                         <xsl:value-of select="./@classActivity"/>
-                        <br/>
-                        <xsl:value-of select="./@classLocation"/>
-                        <br/>
+
                     </xsl:if>
                 </xsl:for-each>
             </td>
             <td>
                 <xsl:for-each select="./booking">
-                    <xsl:if test="@startTime='11:30:00'">
+                    <xsl:if test="@weekDay='Thursday'">
                         ACIT<xsl:value-of select="./@courseID"/>
                         <br/>
                         <xsl:value-of select="./@instructor"/>
                         <br/>
                         <xsl:value-of select="./@classActivity"/>
-                        <br/>
-                        <xsl:value-of select="./@classLocation"/>
-                        <br/>
                     </xsl:if>
                 </xsl:for-each>
             </td>
             <td>
                 <xsl:for-each select="./booking">
-                    <xsl:if test="@startTime='12:30:00'">
+                    <xsl:if test="@weekDay='Friday'">
                         ACIT<xsl:value-of select="./@courseID"/>
                         <br/>
                         <xsl:value-of select="./@instructor"/>
                         <br/>
                         <xsl:value-of select="./@classActivity"/>
-                        <br/>
-                        <xsl:value-of select="./@classLocation"/>
-                        <br/>
                     </xsl:if>
                 </xsl:for-each>
             </td>
-            <td>
-                <xsl:for-each select="./booking">
-                    <xsl:if test="@startTime='01:30:00'">
-                        ACIT<xsl:value-of select="./@courseID"/>
-                        <br/>
-                        <xsl:value-of select="./@instructor"/>
-                        <br/>
-                        <xsl:value-of select="./@classActivity"/>
-                        <br/>
-                        <xsl:value-of select="./@classLocation"/>
-                        <br/>
-                    </xsl:if>
-                </xsl:for-each>
-            </td>
-            <td>
-                <xsl:for-each select="./booking">
-                    <xsl:if test="@startTime='02:30:00'">
-                        ACIT<xsl:value-of select="./@courseID"/>
-                        <br/>
-                        <xsl:value-of select="./@instructor"/>
-                        <br/>
-                        <xsl:value-of select="./@classActivity"/>
-                        <br/>
-                        <xsl:value-of select="./@classLocation"/>
-                        <br/>
-                    </xsl:if>
-                </xsl:for-each>
-            </td>
-            <td>
-                <xsl:for-each select="./booking">
-                    <xsl:if test="@startTime='03:30:00'">
-                        ACIT<xsl:value-of select="./@courseID"/>
-                        <br/>
-                        <xsl:value-of select="./@instructor"/>
-                        <br/>
-                        <xsl:value-of select="./@classActivity"/>
-                        <br/>
-                        <xsl:value-of select="./@classLocation"/>
-                        <br/>
-                    </xsl:if>
-                </xsl:for-each>
-            </td>
-            <td>
-                <xsl:for-each select="./booking">
-                    <xsl:if test="@startTime='04:30:00'">
-                        ACIT<xsl:value-of select="./@courseID"/>
-                        <br/>
-                        <xsl:value-of select="./@instructor"/>
-                        <br/>
-                        <xsl:value-of select="./@classActivity"/>
-                        <br/>
-                        <xsl:value-of select="./@classLocation"/>
-                        <br/>
-                    </xsl:if>
-                </xsl:for-each>
-            </td>
+
         </tr>
     </xsl:template>
     

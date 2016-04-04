@@ -14,7 +14,7 @@ and open the template in the editor.
         </xs:restriction>
     </xs:simpleType>
     
-    <xs:simpleType name="HourMinuteTime" id="startTime">
+    <xs:simpleType name="HourMinuteTime" id="time">
         <xs:restriction base="xs:time">
             <xs:whiteSpace value="collapse" fixed="true"/>
         </xs:restriction>
@@ -48,7 +48,7 @@ and open the template in the editor.
         </xs:complexType>
     </xs:element>
     
-    <!-- Complex type (element) for timeslots with the startTime attribute calling 
+    <!-- Complex type (element) for timeslots with the time attribute calling 
     type HourMinuteTime declared earlier -->
     <xs:complexType name="Ttimeslots">
         <xs:sequence>
@@ -60,7 +60,7 @@ and open the template in the editor.
         <xs:sequence>
             <xs:element name="booking" type="Tbooking" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="startTime" type="HourMinuteTime" use="required"/>
+        <xs:attribute name="time" type="HourMinuteTime" use="required"/>
     </xs:complexType>
     
     <!-- Complex type (element) for days with the weekDay attribute calling type Tday
@@ -98,7 +98,7 @@ and open the template in the editor.
     <!-- Created 3 different bookings with different attributes for three facets -->
     <xs:complexType name="Cbooking">
         <xs:attribute name="weekDay" type="Tweekday" use="required"/>
-        <xs:attribute name="startTime" type="HourMinuteTime" use="required"/>
+        <xs:attribute name="time" type="HourMinuteTime" use="required"/>
         <xs:attribute name="endTime" type="HourMinuteTime" use="required"/>
         <xs:attribute name="instructor" type="xs:string" use="required"/>
         <xs:attribute name="classActivity" type="xs:string" use="required"/>
@@ -107,7 +107,7 @@ and open the template in the editor.
     
      <xs:complexType name="Dbooking">
         <xs:attribute name="courseID" type="TcourseID" use="required"/>
-        <xs:attribute name="startTime" type="HourMinuteTime" use="required"/>
+        <xs:attribute name="time" type="HourMinuteTime" use="required"/>
         <xs:attribute name="endTime" type="HourMinuteTime" use="required"/>
         <xs:attribute name="instructor" type="xs:string" use="required"/>
         <xs:attribute name="classActivity" type="xs:string" use="required"/>
