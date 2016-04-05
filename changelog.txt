@@ -1,8 +1,10 @@
 Change log
 Newest at the top
 
+04/04/2016 9:00PM: Created dayCentric_xsl.xsl
+04/04/2016 5:30PM: Created dayCentric_xml.xml
 04/04/2016 3:20PM: Created timeCentric_xsl
-04/04/2016 3:05PM: Updated master.xml and modified dtd/xsd
+04/04/2016 3:05PM: Updated master.xml and modified dtd/xsd (timeCentric_xml.xml)
 03/22/2016 12:06AM: Cleaned up and created new class called Booking()
 03/08/2016 12:58AM: Updated and repaired the timeslot_facet.xml
 03/08/2016 11:30PM: Updated and repaired the course.xml
